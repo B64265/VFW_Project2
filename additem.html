@@ -18,6 +18,9 @@
  		<!--Page Title-->
  		<title>RemindMe</title>
  		
+ 		<!--CSS Link-->
+ 		<link href="css/additem.css" rel="stylesheet" />
+ 		
  	</head>
  	<body>
  		
@@ -39,15 +42,15 @@
 		        			<option value="Other">Other</option>
 	        			</select>
 	        		</li>
-	        		<br />
+	        		
 	        		
 	        		<!-- Label and text field -->
 	        		<li><label for="remindTitle">Name:</label><input type="text" id="remindTitle" /></li>
-	        		<br />
+	        		
 	        		
 	        		<!-- Date -->
 	        		<li><label for="due">Due Date:</label><input type="date" id="due" /></li>
-	        		<br />
+	        		
 	        		
 	        		<!-- Radio Buttons -->
 	        		<li>What is the Priority of this event?</li>
@@ -56,18 +59,17 @@
 			        		<li><label for="stdpri">Normal Priority</label><input type="radio" checked name="priority" value="normal" id="stdpri" /></li>
 			        		<li><label for="lopri">Low Priority</label><input type="radio" name="priority" value="low" id="lopri" /></li>
 		        		</ul>
-	        		<br />
+	        		
 	        		
 	        		<!-- Range Selection -->
 	        		<li>
 		        		<label for="recurrence">A few or several recurrences in the next month?</label>
-		        		<br />
+		        		
 		        		<input type="range" id="recurrence" min="0" max="10" value="0" name="recurrence" />
 	        		</li>
 	        		<!-- Text Area -->
 	        		<li>
 	        			<label for="description">Description:</label>
-	        			<br />
 	        			<textarea id="description" form="reminderForm"></textarea>
 	        		</li>
 	        		<!-- Hidden input -->
