@@ -19,7 +19,9 @@
  		<title>RemindMe</title>
  		
  		<!--CSS Link-->
- 		<link href="css/additem.css" rel="stylesheet" />
+ 		<link href="css/styles.css" rel="stylesheet" />
+ 		
+
  		
  	</head>
  	<body>
@@ -34,13 +36,8 @@
 	        	<legend>Set Reminder</legend>
 	        	<ul>
 	        		<!-- Select / Option -->
-	        		<li>
+	        		<li id="select">
 	        			<label for="category">Reminder Category:</label>
-	        			<select id="category">
-		        			<option value="Personal">Personal</option>
-		        			<option value="Work">Work</option>
-		        			<option value="Other">Other</option>
-	        			</select>
 	        		</li>
 	        		
 	        		
@@ -77,12 +74,14 @@
 	        	</ul>
         	</fieldset>
         	<!-- Submit Button -->
-        	<input type="button" value="Submit" />
+        	<input type="button" value="Submit" id="submit"/>
         </form>
         <br />
         <!-- Clear and Display Data Links -->
-        <a href="#">Clear Storage</a>
-        <br />
-        <a href="#">Display Data</a>
+        <a href="#" id="clearData">Clear Storage</a>
+        <a href="#" id="showData">Display Data</a>
+        <a href="additem.html" id="addNewForm" style="display:none;">Add New Reminder</a>
+ 		<!--JS Link-->
+ 		<script type="text/javascript" src="js/main.js"></script>
  	</body>
  </html>
