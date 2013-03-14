@@ -1,6 +1,34 @@
+/*
+Jeremy Goldman
+VFW - Term 1303
+Project 1
+03/13/2013
+
+*/
+
 label{
 	
 	display: block;
 	
+	
+}
+
+h1{
+	text-align: center;
+	color:black;
+	text-transform:capitalize;
+	border-bottom-style:double;
+	width: 100%;
+	height: 40px
+}
+
+fieldset{
+	
+	background: white;
+}
+
+body{
+	
+	background: #fff5e7;
 	
 }
