@@ -16,23 +16,23 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	//Create select field element, and add options
-	function makeGroups(){
+	function createGroups(){
 		
 		var formTag = document.getElementsByTagName("form"),
 			selectLi = $('select'),
-			makeSelect = document.createElement('select');
-			makeSelect.setAttribute("id", "groups");
+			createSelect = document.createElement('select');
+			createSelect.setAttribute("id", "groups");
 		
 		for(var i=0, j=catGroups.length; i<j; i++){
 			
-			var makeOptions = document.createElement('option');
+			var createOptions = document.createElement('option');
 			var optionText = catGroups[i];
-			makeOptions.setAttribute("value", optionText);
-			makeOptions.innerHTML = optionText;
-			makeSelect.appendChild(makeOptions);
+			createOptions.setAttribute("value", optionText);
+			createOptions.innerHTML = optionText;
+			createSelect.appendChild(createOptions);
 		}
 		
-		selectLi.appendChild(makeSelect);
+		selectLi.appendChild(createSelect);
 		
 		
 	}
@@ -97,7 +97,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	
-	function getData(){
+	function getSomeData(){
 		toggleControl("on");
 		
 		if(localStorage.length === 0){
@@ -106,28 +106,28 @@ window.addEventListener("DOMContentLoaded", function(){
 			
 		}
 		
-		var makeDiv = document.createElement('div');
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement('ul');
-		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);
+		var createDiv = document.createElement('div');
+		createDiv.setAttribute("id", "items");
+		var createList = document.createElement('ul');
+		createDiv.appendChild(createList);
+		document.body.appendChild(createDiv);
 		$('items').style.display = "block";
 
 		for(var i=0, j=localStorage.length; i<j; i++){
 			
-			var makeLi = document.createElement('li');
-			makeList.appendChild(makeLi);
+			var createLi = document.createElement('li');
+			createList.appendChild(createLi);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var reObj = JSON.parse(value);
-			var makeSubList = document.createElement('ul');
-			makeLi.appendChild(makeSubList);
+			var createSubList = document.createElement('ul');
+			createLi.appendChild(createSubList);
 			for( var n in reObj){
 				
-				var makeSubLi = document.createElement("li");
-				makeSubList.appendChild(makeSubLi);
+				var createSubLi = document.createElement("li");
+				createSubList.appendChild(createSubLi);
 				var optSubText = reObj[n][0]+" "+reObj[n][1];
-				makeSubLi.innerHTML = optSubText;
+				createSubLi.innerHTML = optSubText;
 				
 			}
 			
@@ -153,12 +153,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	//Array
 	var catGroups =["Personal", "Work", "Other"], priorityValue;
-	makeGroups();
+	createGroups();
 	
 	
 	// Click events and links
 	var showDataLink = $('showData');
-	showDataLink.addEventListener("click", getData);
+	showDataLink.addEventListener("click", getSomeData);
 	var clearDataLink = $('clearData');
 	clearDataLink.addEventListener("click", clearStoredData);
 	var saveLocalData = $('submit');
