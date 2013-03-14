@@ -50,9 +50,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	
-	function toggle(toggle){
+
+	function toggleControl(a){
 		
-		switch(toggle){
+		switch(a){
 			case "on":
 				$('reminderForm').style.display = "none";
 				$('clearData').style.display = "inline";
@@ -60,11 +61,16 @@ window.addEventListener("DOMContentLoaded", function(){
 				$('addNewForm').style.display = "inline";
 				break;
 			case "off":
-			
+				$('reminderForm').style.display = "block";
+				$('clearData').style.display = "inline";
+				$('showData').style.display = "inline";
+				$('addNewForm').style.display = "none";
+				$('items').style.display = "none";
 				break;
 			default:
 				return false;
 	
+			}
 	}
 	
 	function saveData(){
@@ -92,11 +98,21 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	
 	function getData(){
+		toggleControl("on");
+		
+		if(localStorage.length === 0){
+			
+			alert("There is no data in local storage.");
+			
+		}
+		
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
+		$('items').style.display = "block";
+
 		for(var i=0, j=localStorage.length; i<j; i++){
 			
 			var makeLi = document.createElement('li');
@@ -119,6 +135,22 @@ window.addEventListener("DOMContentLoaded", function(){
 		
 	}
 	
+	function clearStoredData(){
+		
+		if(localStorage === 0){
+			
+			alert("There is no stored data to clear!");
+			
+		}else{
+			
+			localStorage.clear();
+			alert("All reminders are cleared!");
+			window.location.reload();
+			return false;
+		}
+		
+	}
+	
 	//Array
 	var catGroups =["Personal", "Work", "Other"], priorityValue;
 	makeGroups();
@@ -127,46 +159,13 @@ window.addEventListener("DOMContentLoaded", function(){
 	// Click events and links
 	var showDataLink = $('showData');
 	showDataLink.addEventListener("click", getData);
-	//var clearDataLink = $('clearData');
-	//clearDataLink.addEventListener("click", clearStoredData);
+	var clearDataLink = $('clearData');
+	clearDataLink.addEventListener("click", clearStoredData);
 	var saveLocalData = $('submit');
 	saveLocalData.addEventListener("Click", saveData)
 	
 	var save = $('submit');
 	save.addEventListener("click", saveData);
 
-	/*
-	//Variables
-	var title = document.getElementById("remindTitle");
-	var dueDate = document.getElementById("due");
-	var title = document.getElementById("remindTitle");
-	var title = document.getElementById("remindTitle");
-	var title = document.getElementById("remindTitle");
 	
-	
-	var saveData = function(){
-		
-		localStorage.setItem("Reminder Title", title.value);
-		localStorage.setItem("Due Date", dueDate.value);
-		localStorage.setItem("Reminder Title", title.value);
-		localStorage.setItem("Reminder Title", title.value);
-		localStorage.setItem("Reminder Title", title.value);
-		
-	}
-	
-	var inputSavedData = function(){
-		
-		var titleKey = localStorage.key("Reminder Title");
-		var titleValue = localStorage.getItem(titleKey);
-		title.value = titleValue;
-		
-	}
-	
-	//Event Listener
-	title.addEventListener("blur", saveData);
-	
-	
-	inputSavedData();
-
-	*/
 });
